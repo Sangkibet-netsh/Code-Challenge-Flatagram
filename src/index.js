@@ -24,6 +24,16 @@ function fetchDogDetails (id) {
     });
 }
 
+//Fetch Dog Comments
+function fetchDogComments () {
+    fetch(`${commentsUrl}`)
+    .then(response => response.json())
+    .then(comments => {
+        document.getElementById("comments-list").innerHTML = comments
+        .map((comment) => `<li> ${comment.content}</li>`)
+        .join("");
+    })
+}
 
 
 
