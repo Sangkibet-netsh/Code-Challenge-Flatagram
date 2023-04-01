@@ -57,6 +57,14 @@ function createNewComment () {
         deleteBtn.addEventListener("click", deleteNewComment)
     })
 }
+//Add comment to comment list
+function appendNewComment(comment) {
+    document.getElementById("comments-list").appendChild(comment);
+}
+
+function deleteNewComment (event) {
+    event.target.parentNode.remove();
+}
 
 
 
