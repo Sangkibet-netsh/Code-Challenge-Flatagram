@@ -35,6 +35,29 @@ function fetchDogComments () {
     })
 }
 
+//Create a new comment
+function createNewComment () {
+    document.getElementById("comment-form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const commentForm = event.target;
+
+        const newCommentDescription = document.getElementById("comment");
+        const newComment = document.createElement("li");
+        newComment.innerText = newCommentDescription.value;
+
+        appendNewComment(newComment);
+        event.target.reset();  //Reset the form
+
+        //Delete comment from comment list
+        const deleteBtn = document.createElement("button");
+        deleteBtn.className = "delete-button";
+        deleteBtn.textContent = "Delete";
+        newComment.appendChild(deleteBtn);
+
+        deleteBtn.addEventListener("click", deleteNewComment)
+    })
+}
+
 
 
 document.addEventListener("DOMContentLoaded", function () {
