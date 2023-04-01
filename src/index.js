@@ -12,4 +12,24 @@ function fetchDogDetails (id) {
         document.getElementById("card-title").innerText = dog.title
 
         document.getElementById("card-image").src = dog.image;
-    })}
+    
+
+        //Add Like Functionality
+        const heart = document.getElementById("like-button");
+        heart.addEventListener("click", () => {
+            const dogLikes = document.getElementById("like-count");
+            dog.likes += 1;
+            dogLikes.innerText = `${dog.likes} likes`;
+        })
+    });
+}
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    fetchDogDetails(1);
+    fetchDogComments();
+    createNewComment();
+    getDogImage();
+})
